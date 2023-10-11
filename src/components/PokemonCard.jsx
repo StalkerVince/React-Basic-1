@@ -16,7 +16,6 @@ function PokemonCard({ pokemon }) {
   return (
     <div>
       <figure>
-        {/*Si pokemon.imgSrc, alors mettre image sinon afficher ??? */}
         {imgSrc ? <img src={imgSrc}></img> : <p>???</p>}
         <figcaption>{name}</figcaption>
       </figure>
