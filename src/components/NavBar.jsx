@@ -1,19 +1,15 @@
-import { useState } from "react";
-
-function NavBar({ pokemonIndex, setPokemonIndex }) {
-  const previous = () => {
-    setPokemonIndex(pokemonIndex - 1);
+function NavBar({ pokemonList, setPokemonIndex }) {
+  const button = (e) => {
+    setPokemonIndex(pokemonList.indexOf(e));
   };
-
-  const next = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
-
   return (
     <>
       <div>
-        <button onClick={previous}>Précédent</button>
-        <button onClick={next}>Suivant</button>
+        {pokemonList.map((e) => (
+          <button key={e.name} onClick={() => button(e)}>
+            {e.name}
+          </button>
+        ))}
       </div>
     </>
   );

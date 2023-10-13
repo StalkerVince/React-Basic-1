@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  /* état par default de la page 
+  défini sur l'index 0 du tableau */
 
   const pokemonList = [
     {
@@ -34,15 +36,24 @@ function App() {
 
     {
       name: "mew",
+      /* imgSrc est manquant ici (fait exprès) */
     },
   ];
 
   return (
     <div>
       <nav>
-        <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} />
+        <NavBar /* On récupère le return de Navbar */
+          pokemonList={pokemonList}
+          pokemonIndex={pokemonIndex}
+          setPokemonIndex={setPokemonIndex}
+          /* On envoie pokemonIndex et setPokemonIndex vers NavBar */
+        />
       </nav>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      <PokemonCard
+        pokemon={pokemonList[pokemonIndex]}
+        /* pokemon=pokemonList[0] */
+      />
     </div>
   );
 }
