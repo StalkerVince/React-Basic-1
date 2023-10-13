@@ -1,11 +1,12 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./components/PokemonCard.jsx";
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 
 function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -36,25 +37,12 @@ function App() {
     },
   ];
 
-  const [pokemonIndex, setpokemonIndex] = useState(0);
-
-  const previous = () => {
-    setpokemonIndex(pokemonIndex - 1);
-    console.log(pokemonIndex);
-  };
-
-  const next = () => {
-    setpokemonIndex(pokemonIndex + 1);
-    console.log(pokemonIndex);
-  };
-
   return (
     <div>
+      <nav>
+        <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} />
+      </nav>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <div>
-        <button onClick={previous}>Précédent</button>
-        <button onClick={next}>Suivant</button>
-      </div>
     </div>
   );
 }

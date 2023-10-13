@@ -4,13 +4,10 @@ function PokemonCard({ pokemon }) {
   const { name, imgSrc } = pokemon;
 
   PokemonCard.propTypes = {
-    PokemonCard:
-      PropTypes.shape[
-        {
-          name: PropTypes.string.isRequired,
-          imgSrc: PropTypes.string,
-        }
-      ],
+    pokemon: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string,
+    }).isRequired,
   };
 
   return (
